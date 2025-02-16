@@ -215,3 +215,16 @@ async function checkPayment() {
     }
 }
 
+
+const BACKEND_URL = "https://angnor89.github.io/Downvid-pro/"; // Ou l'URL Ngrok
+
+async function downloadVideo(link) {
+    const response = await fetch(`${BACKEND_URL}/download`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url: link })
+    });
+    const data = await response.json();
+    console.log(data);
+}
+

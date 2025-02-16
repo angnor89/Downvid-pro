@@ -43,8 +43,9 @@ app.post("/check-payment", async (req, res) => {
     }
     res.json({ success: false, message: "Paiement non trouvé." });
 });
+const BACKEND_URL = "https://angnor89.github.io/Downvid-pro/";
 app.get("/", (req, res) => {
-    res.send("Le backend fonctionne !");
+    res.send(BACKEND_URL);
 });
 // Démarrer le serveur
 app.listen(3000, () => console.log("Serveur en ligne sur http://localhost:3000"));

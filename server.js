@@ -44,8 +44,25 @@ app.post("/check-payment", async (req, res) => {
     res.json({ success: false, message: "Paiement non trouvé." });
 });
 
+//app.get("/", (req, res) => {
+    //res.redirect("https://angnor89.github.io/Downvid-pro/");
+//});
+
+const path = require('path');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+// Servir les fichiers statiques depuis "public/"
+app.use(express.static(path.join(__dirname, '/')));
+
+// Route pour servir le fichier index.html par défaut
 app.get("/", (req, res) => {
-    res.redirect("https://angnor89.github.io/Downvid-pro/");
+    res.sendFile(path.join(__dirname, "index.html"));
+});
+
+app.listen(PORT, () => {
+    console.log(`Serveur en ligne sur le port ${PORT}`);
 });
 // Démarrer le serveur
 app.listen(3000, () => console.log("Serveur en ligne sur http://localhost:3000"));

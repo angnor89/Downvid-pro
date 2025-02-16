@@ -216,7 +216,7 @@ async function checkPayment() {
 }
 
 
-const BACKEND_URL = "https://angnor89.github.io/Downvid-pro/"; // Ou l'URL Ngrok
+const BACKEND_URL = "https://downvid-pro.onrender.com/"; // Ou l'URL Ngrok
 
 async function downloadVideo(link) {
     const response = await fetch(`${BACKEND_URL}/download`, {

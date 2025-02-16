@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downvid Pro - Téléchargez vos vidéos facilement</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="language-selector">
+    <label for="language">🌍</label>
+    <select id="language" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="ru">Русский</option>
+    </select>
+</div>
+
+    <div class="container">
+        <h1>Downvid Pro</h1>
+        <p>Collez le lien de la vidéo et téléchargez en haute qualité</p>
+        
+        <input type="text" id="videoUrl" placeholder="Collez le lien ici..." required>
+        
+        <div class="options">
+            <button onclick="download('video')">Télécharger Vidéo</button>
+            <button onclick="download('audio')">Télécharger Audio</button>
+        </div>
+
+        <p id="status"></p>
+    </div>
+<div id="payment-section" style="display: none;">
+    <p>Vous avez atteint la limite gratuite. Payez 2$ en crypto pour continuer.</p>
+    
+    <label for="crypto">Choisissez une cryptomonnaie :</label>
+    <select id="crypto" onchange="updateNetworkOptions()">
+        <option value="BTC">Bitcoin (BTC)</option>
+        <option value="ETH">Ethereum (ETH)</option>
+        <option value="BNB">BNB (BNB)</option>
+        <option value="SOL">Solana (SOL)</option>
+        <option value="TRX">Tron (TRX)</option>
+        <option value="USDT">USDT (Stablecoin)</option>
+    </select>
+
+    <div id="network-section" style="display: none;">
+        <label for="network">Choisissez un réseau :</label>
+        <select id="network">
+            <option value="TRC20">Tron (TRC20)</option>
+            <option value="ERC20">Ethereum (ERC20)</option>
+            <option value="BEP20">BNB (BEP20)</option>
+        </select>
+    </div>
+
+    <button onclick="payWithCrypto()">Payer avec Trust Wallet</button>
+    <div id="payment-info">
+    <p>Envoyez 2 USD en <span id="crypto-name"></span> à cette adresse :</p>
+    <input type="text" id="wallet-address" readonly>
+    <button onclick="copyAddress()">Copier l’adresse</button>
+    <img id="qr-code" src="" alt="QR Code du paiement">
+</div>
+<button onclick="showPaymentInfo()">Obtenir l’adresse de paiement</button>
+<button onclick="checkPayment()">Vérifier le paiement</button>
+</div>
+    <script src="main.js"></script>
+
+</body>
+</html>

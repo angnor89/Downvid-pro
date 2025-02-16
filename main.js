@@ -220,7 +220,7 @@ const BACKEND_URL = "https://downvid-pro.onrender.com/"; // Ou l'URL Ngrok
 
 async function downloadVideo(link) {
     const response = await fetch(`${BACKEND_URL}/download`, {
-        method: "POST",
+        method: "GET",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ url: link })
     });
